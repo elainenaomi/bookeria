@@ -1,6 +1,5 @@
-<h1>Bookeria</h1>
-
-<table>
+<table class="table table-striped">
+  <thead>
   <tr>
     <th>Title</th>
     <th>Author</th>
@@ -8,17 +7,22 @@
     <th>Year</th>
     <th>Actions</th>
   </tr>
+  </thead>
+  <tbody>
   <% @books.each do |book| %>
     <tr>
       <td><%= book.title %></td>
       <td><%= book.author %></td>
       <td><%= book.genre %></td>
       <td><%= book.year %></td>
-      <td><%= link_to 'Show book', book %></td>
+      <td><%= link_to 'Show book', book, class: 'btn btn-outline-dark' %></td>
     </tr>
   <% end %>
+  </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New book', new_book_path %>
+<%= link_to new_book_path, class: 'btn btn-success' do %>
+  <i class="fa fa-book-open"></i> New book
+<% end %>
